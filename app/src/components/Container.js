@@ -1,5 +1,13 @@
 import React from 'react/lib/React';
-import {Link} from 'react-router';
+
+import Route from 'react-router-dom/es/Route';
+import Redirect from 'react-router-dom/es/Redirect';
+import Link from 'react-router-dom/es/Link';
+
+import About from './About';
+import Home from './Home';
+import Name from './Name';
+import Portfolio from './Portfolio';
 
 const Container = ({children}) => (
   <div>
@@ -15,9 +23,11 @@ const Container = ({children}) => (
         <li><Link to="/portfolio/1">Portfoilo - #1</Link></li>
       </ul>
     </header>
-    <div>
-      {children}
-    </div>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/about" component={About} />
+    <Route path="/about/name" component={Name} />
+    <Route path="/redirect0" onEnter={(nextState, replace) => replace('/portfolio/0')} />
+    <Route path="/portfolio(/:id)" component={Portfolio} />
   </div>
 );
 

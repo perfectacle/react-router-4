@@ -1,8 +1,6 @@
 import React from 'react/lib/React';
 
-const Portfolio = ({
-  routeParams: {id}
-}) =>  {
+const Portfolio = ({ match: {params: {id}} }) =>  {
   const allList = [
     { id: 0, text: 'portfolio #0' },
     { id: 1, text: 'portfolio #1' }

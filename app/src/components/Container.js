@@ -1,5 +1,5 @@
 import React from 'react/lib/React';
-import {Link} from 'react-router';
+import Link from 'react-router/es/Link';
 
 const Container = ({children}) => (
   <div>

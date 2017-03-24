@@ -1,7 +1,7 @@
 import React from 'react/lib/React';
 
 import Link from 'react-router-dom/es/Link';
-const Container = () => (
+const Menu = () => (
   <div>
     <header>
       <ul>
@@ -18,4 +18,4 @@ const Container = () => (
   </div>
 );
 
-export default Container;
+export default Menu;

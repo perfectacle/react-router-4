@@ -1,4 +1,4 @@
-import React from 'react/lib/React';
+import React, {Component} from 'react/lib/React';
 
 // import { BrowserRouter, HashRouter, Route, Redirect, Link } from 'react-router-dom';
 // 리액트 라우터를 코드 스플리팅 하려면 위 코드를 이렇게 하나씩 불러와야한다 귀찮 ㅠ
@@ -9,18 +9,43 @@ import Redirect from 'react-router-dom/es/Redirect';
 import Switch from 'react-router-dom/es/Switch';
 
 import Container from './components/Container';
-import About from './components/About';
-import Home from './components/Home';
-import Name from './components/Name';
-import Portfolio from './components/Portfolio';
-
 
 // HTML5 History API 지원여부 파악
 const isBrowserHistory = history.pushState;
 const Router = isBrowserHistory ? BrowserRouter : HashRouter;
 
-// 리액트 라우터 3에서 코드 스플리팅 하기.
-const loadRoute = callback => module => callback(null, module.default);
+// 리액트 라우터 4에서 코드 스플리팅 하기.
+// getComponent is a function that returns a promise for a component
+// It will not be called until the first mount
+const asyncComponent = getComponent => (
+  class AsyncComponent extends Component {
+    constructor() {
+      super();
+      this.state = {Component: AsyncComponent.Component};
+    }
+
+    componentWillMount() {
+      if (!this.state.Component) {
+        getComponent().then(Component => {
+          AsyncComponent.Component = Component;
+          this.setState({Component});
+        });
+      }
+    }
+    render() {
+      const {Component} = this.state;
+      if(Component) {
+        return <Component {...this.props} />;
+      }
+      return null;
+    }
+  }
+);
+
+const About = asyncComponent(() => import('./components/About').then(module => module.default));
+const Home = asyncComponent(() => import('./components/Home').then(module => module.default));
+const Name = asyncComponent(() => import('./components/Name').then(module => module.default));
+const Portfolio = asyncComponent(() => import('./components/Portfolio').then(module => module.default));
 
 const App =
   // v3에는 Router 안에 browserRouter or hashRouter가 들어갔는데,

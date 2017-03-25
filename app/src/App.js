@@ -15,7 +15,7 @@ const isBrowserHistory = history.pushState;
 // 리액트 라우터 3에서 코드 스플리팅 하기.
 const loadRoute = callback => module => callback(null, module.default);
 
-const App =
+const App = () => (
   <Router history={isBrowserHistory ? browserHistory : hashHistory}>
     <Route path="/" getComponent={ // component 대신에 getComponent를 써야 코드 스플리팅이 됨.
       (loaction, callback) => {
@@ -43,6 +43,7 @@ const App =
           import('./components/Portfolio').then(loadRoute(callback))
         }}/>
     </Route>
-  </Router>;
+  </Router>
+);
 
 export default App;

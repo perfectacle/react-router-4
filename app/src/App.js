@@ -47,7 +47,7 @@ const Home = asyncComponent(() => import('./components/Home').then(module => mod
 const Name = asyncComponent(() => import('./components/Name').then(module => module.default));
 const Portfolio = asyncComponent(() => import('./components/Portfolio').then(module => module.default));
 
-const App =
+const App = () => (
   // v3에는 Router 속성에 browserRouter or hashRouter가 들어갔는데,
   // v4에는 BrowserRouter or HashRouter가 Router까지 포함한다.
   // 또한 Router 안에는 하나의 컴포넌트만 들어가야한다.
@@ -68,6 +68,7 @@ const App =
       <Route exact path="/portfolio" component={Portfolio} />
       <Route path="/portfolio/:id" component={Portfolio} />
     </div>
-  </Router>;
+  </Router>
+);
 
 export default App;

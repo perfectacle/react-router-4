@@ -6,7 +6,7 @@ const PORT = 3001;
 const ROOT = './app/src';
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'eval',
   entry: [
     'react-hot-loader/patch',
 

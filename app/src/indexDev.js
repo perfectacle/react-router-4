@@ -7,6 +7,12 @@ if( // 배포할 때는 리액트 개발 도구를 죽여놔야함.
 import React from 'react/lib/React';
 import { render } from 'react-dom';
 
-import App from './App';
+import App from './AppDev';
 
 render(<App />, document.getElementById('app'));
+
+if (module.hot) {
+  module.hot.accept('./AppDev', () => {
+    render(<App />, document.getElementById('app'));
+  });
+}

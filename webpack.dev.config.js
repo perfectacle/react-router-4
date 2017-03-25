@@ -18,7 +18,7 @@ module.exports = {
     // bundle the client for hot reloading
     // only- means to only hot reload for successful updates
 
-    resolve(ROOT, 'index')
+    resolve(ROOT, 'indexDev')
     // the entry point of our app
   ],
   output: {

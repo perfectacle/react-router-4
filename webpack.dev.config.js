@@ -8,6 +8,8 @@ const ROOT = './app/src';
 module.exports = {
   devtool: 'inline-source-map',
   entry: [
+    'react-hot-loader/patch',
+
     `webpack-dev-server/client?http://localhost:${PORT}`,
     // bundle the client for webpack-dev-server
     // and connect to the provided endpoint

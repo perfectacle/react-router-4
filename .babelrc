@@ -1,4 +1,17 @@
 {
-  "presets": ["react", "latest"],
-  "plugins": ["syntax-dynamic-import"]
+  "presets": [
+    [
+      "latest",
+      {
+        "es2015": {
+          "modules": false
+        }
+      }
+    ],
+    "react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "syntax-dynamic-import"
+  ]
 }

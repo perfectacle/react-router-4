@@ -1,10 +1,12 @@
-import React from 'react/lib/React';
+import React, {Component} from 'react/lib/React';
 
-const About = ({children}) => (
-  <div>
-    <h2>About</h2>
-    <div>{children}</div>
-  </div>
-);
-
-export default About;
+export default class About extends Component {
+  render() {
+    return(
+      <div>
+        <h2>About</h2>
+        <div>{this.props.children}</div>
+      </div>
+    );
+  }
+}

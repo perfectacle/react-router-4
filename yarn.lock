@@ -1608,7 +1608,7 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
-history@^4.5.1, history@^4.6.0:
+history@^4.5.0, history@^4.5.1, history@^4.6.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/history/-/history-4.6.1.tgz#911cf8eb65728555a94f2b12780a0c531a14d2fd"
   dependencies:
@@ -2523,6 +2523,12 @@ react-dom@^15.4.2:
     fbjs "^0.8.1"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+react-history@^0.18.2:
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/react-history/-/react-history-0.18.2.tgz#b6fe970751606afe0039c1a828ba8766de958f6a"
+  dependencies:
+    history "^4.5.0"
 
 react-hot-loader@next:
   version "3.0.0-beta.6"

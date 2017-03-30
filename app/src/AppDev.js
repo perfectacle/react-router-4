@@ -21,7 +21,7 @@ import Portfolio from './components/Portfolio';
 const App = () => (
   <Router>
     <div>
-      <Menu/>
+      <Route component={Menu} />
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/about/name" component={Name} />

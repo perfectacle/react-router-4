@@ -8,8 +8,6 @@ import Route from 'react-router-dom/es/Route';
 import Redirect from 'react-router-dom/es/Redirect';
 import Switch from 'react-router-dom/es/Switch';
 
-import Menu from './components/Menu';
-
 // HTML5 History API 지원여부 파악
 const isBrowserHistory = history.pushState;
 const Router = isBrowserHistory ? BrowserRouter : HashRouter;
@@ -42,6 +40,7 @@ const asyncComponent = getComponent => (
   }
 );
 
+const Menu = asyncComponent(() => import('./components/Menu').then(module => module.default));
 const About = asyncComponent(() => import('./components/About').then(module => module.default));
 const Home = asyncComponent(() => import('./components/Home').then(module => module.default));
 const Name = asyncComponent(() => import('./components/Name').then(module => module.default));
@@ -52,12 +51,12 @@ const App = () => (
   // v4에는 BrowserRouter or HashRouter가 Router까지 포함한다.
   // 또한 Router 안에는 하나의 컴포넌트만 들어가야한다.
   // 따라서 div 같은 컴포넌트로 그 안을 한 번 감싸줘야한다.
-  // 또한 IndexRoute는 Route 컴포넌트의 exact라는 속성으로 대체되었다.
   // Redirect 컴포넌트는 Switch 컴포넌트로 감싸줘야 정상 작동한다.
   // 또한 파라미터는 괄호를 써서 생략 가능하던 것이 불가능해졌다.
+  // 따라서 두 가지 경우 모두 적어줘야한다.
   <Router>
     <div>
-      <Menu/>
+      <Route component={Menu} />
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/about/name" component={Name} />

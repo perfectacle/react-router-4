@@ -2,7 +2,7 @@ const express =  require('express');
 const app = express();
 const PORT = 4000;
 const DEV_PORT = 4001;
-const DIST = `${__dirname}/app/src/`;
+const DIST = `${__dirname}/app/src`;
 
 if(process.env.NODE_ENV === 'development') {
   // dev-server config

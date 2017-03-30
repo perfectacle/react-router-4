@@ -48,7 +48,10 @@ module.exports = {
     inline: true,
     port: PORT,
     historyApiFallback: true,
-    contentBase: ROOT
+    contentBase: '/',
+    proxy: {
+      '/api/**': 'http://localhost:' + 4000,
+    }
   }
 };
 

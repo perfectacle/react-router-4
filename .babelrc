@@ -1,11 +1,11 @@
 {
   "presets": [
     [
-      "latest",
+      "env",
       {
-        "es2015": {
-          "modules": false
-        }
+        "browsers": ["last 2 versions", "> 10%", "ie 9"],
+        // tree shaking
+        "modules": false
       }
     ],
     "react"

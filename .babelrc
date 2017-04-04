@@ -1,6 +1,11 @@
 {
   "presets": [
-    "latest",
+    [
+      "env",
+      {
+        "browsers": ["last 2 versions", "> 10%", "ie 9"],
+      }
+    ],
     "react"
   ],
   "plugins": [
